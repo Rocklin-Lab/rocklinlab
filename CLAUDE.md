@@ -24,7 +24,7 @@ When changing nav items, fonts, or the analytics snippet, update **all** HTML fi
 ## Common edits
 
 **Add a lab member.** Copy an existing person block in the Team section of `index.html`:
-`<div class="cols">` → photo column (`flex:22.5`) + text column (`flex:77.5`). Put the photo in `assets/img/` (resize to ~600px wide first).
+`<div class="cols">` → photo column (`flex:22.5`) + text column (`flex:77.5`). Put the photo in `assets/img/` (resize to ~600px wide first). The photo's `<figure>` needs class `headshot`, which crops it to a uniform 200px square.
 **Move someone to alumni.** Delete their block and add a one-line entry to the Lab Alumni list in the same format as the existing lines.
 
 **Add a paper.** The Papers section is two columns (`<div class="col">`), each a stack of: `<figure class="img center">` image, `<div class="text">` with bold 18px title, linked citation, description, then `<hr>`. Newest papers go at the top; keep the two columns roughly balanced.

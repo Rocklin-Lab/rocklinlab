@@ -168,3 +168,6 @@ figure.img figcaption { font-size: 90%; color: var(--muted); }
   .text span[style*="font-size:32px"], h2 span[style*="font-size:32px"] { font-size: 24px !important; }
   h2 span[style*="font-size:48px"] { font-size: 34px !important; }
 }
+
+/* Team photos: uniform square headshots regardless of the uploaded image's size */
+figure.headshot img { width: 200px; aspect-ratio: 1; object-fit: cover; border-radius: 0; }
