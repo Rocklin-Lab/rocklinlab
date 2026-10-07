@@ -1,0 +1,170 @@
+/* Rocklin Lab site styles. Recreates the original Weebly "Birdseye" theme look. */
+
+:root {
+  --text: #000;
+  --muted: #666;
+  --accent: #c23b3b;
+  --gray-band: #f1f1f1;
+  --border: #ddd;
+  --heading-font: 'Montserrat', sans-serif;
+  --body-font: 'Nunito Sans', sans-serif;
+  --header-h: 90px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--text);
+  font-family: var(--body-font);
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img { max-width: 100%; height: auto; }
+
+a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+a:hover { opacity: .7; }
+
+h1, h2, h3, h4 { font-family: var(--heading-font); font-weight: 700; line-height: 1.25; margin: 0 0 15px; }
+h2 { font-size: 24px; }
+h3 { font-size: 18px; }
+
+hr { border: 0; border-top: 1px solid var(--border); margin: 30px 0; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 60px 40px; }
+.muted { color: var(--muted); }
+
+/* ---------- Header / nav ---------- */
+
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 20;
+  padding: 20px 40px;
+  color: #fff;
+  transition: background-color 300ms ease, color 260ms ease, padding 180ms ease;
+}
+.site-header.scrolled { background: #fff; color: #000; padding: 10px 40px; box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+
+.logo {
+  font-family: var(--heading-font); font-weight: 700; font-size: 30px; line-height: 1;
+  text-transform: uppercase; letter-spacing: .03em; text-decoration: none;
+  max-width: 400px; transition: font-size 260ms ease;
+}
+.site-header.scrolled .logo { font-size: 24px; }
+
+.site-header nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: flex-end; }
+.site-header nav a {
+  display: block; padding: 10px 12px;
+  font-family: var(--heading-font); font-weight: 700; font-size: 18px; letter-spacing: .05em;
+  text-decoration: none; border: 1px solid transparent;
+}
+.site-header.scrolled nav a { padding: 6px 8px; }
+.site-header nav a.active { border-color: currentColor; }
+
+.hamburger { display: none; background: none; border: 0; padding: 10px; cursor: pointer; color: inherit; }
+.hamburger span, .hamburger span::before, .hamburger span::after {
+  display: block; width: 24px; height: 2px; background: currentColor; position: relative; content: '';
+}
+.hamburger span::before { position: absolute; top: -7px; }
+.hamburger span::after { position: absolute; top: 7px; }
+
+/* ---------- Hero banners ---------- */
+
+.hero {
+  position: relative; height: 600px; background: #000 center / cover no-repeat;
+}
+.hero-home { height: 740px; }
+.hero::before {
+  content: ''; position: absolute; inset: 0 0 40% 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,.3), rgba(0,0,0,.15) 40%, rgba(0,0,0,0));
+}
+
+/* ---------- Homepage bands ---------- */
+
+.band { position: relative; }
+.band-gray { background: var(--gray-band); }
+.band-image { background: center / cover no-repeat; }
+.band-image.parallax { background-attachment: fixed; }
+
+.anchor { display: block; position: relative; top: calc(-1 * var(--header-h)); visibility: hidden; }
+
+.cols { display: flex; gap: 30px; align-items: flex-start; margin: 10px 0; }
+.col { min-width: 0; }
+
+.text { margin-bottom: 20px; }
+.text ul, .text ol { padding-left: 1.5em; }
+
+figure.img { margin: 0; padding: 10px 0; }
+figure.img.center { text-align: center; }
+figure.img.right { text-align: right; }
+figure.img figcaption { font-size: 90%; color: var(--muted); }
+
+.map iframe { width: 100%; height: 300px; border: 0; }
+
+/* ---------- News / blog ---------- */
+
+.blog-layout { display: flex; gap: 60px; align-items: flex-start; }
+.blog-layout > .post, .blog-layout > .news-list { flex: 1; min-width: 0; }
+.sidebar { width: 260px; flex-shrink: 0; font-size: 14px; line-height: 1.6; }
+.sidebar h3 { font-size: 16px; margin-top: 10px; }
+.post-list { list-style: none; padding: 0; margin: 0; }
+.post-list li { margin-bottom: 8px; }
+.post-list .muted { display: block; font-size: 12px; }
+
+.post-title { font-family: var(--body-font); font-weight: 600; font-size: 28px; margin-bottom: 5px; }
+.post-date { color: var(--muted); font-size: 14px; margin: 0 0 25px; }
+.post-body { margin-bottom: 40px; }
+.back { margin-top: 40px; }
+
+.news-item { padding-bottom: 35px; margin-bottom: 35px; border-bottom: 1px solid var(--border); }
+.news-item h2 { font-family: var(--body-font); font-weight: 600; font-size: 24px; margin-bottom: 5px; }
+.news-item h2 a { text-decoration: none; }
+.news-item .post-date { margin-bottom: 15px; }
+.news-item .thumb img { max-height: 260px; width: auto; display: block; margin-bottom: 10px; }
+.more { font-weight: 600; }
+
+.comments { border-top: 1px solid var(--border); padding-top: 25px; }
+.comment { padding: 15px 0; border-bottom: 1px solid #eee; }
+.comment.reply { margin-left: 40px; }
+.comment-meta { margin-bottom: 5px; }
+.comment-meta .muted { font-size: 13px; margin-left: 8px; }
+
+/* ---------- Footer ---------- */
+
+.site-footer { background: var(--gray-band); font-size: 14px; color: var(--muted); }
+.site-footer .container { padding: 30px 40px; }
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 992px) {
+  :root { --header-h: 60px; }
+  .site-header, .site-header.scrolled { padding: 8px 16px; }
+  .logo, .site-header.scrolled .logo { font-size: 18px; }
+  .hamburger { display: block; }
+  .site-header nav {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    background: #fff; color: #000; box-shadow: 0 4px 8px rgba(0,0,0,.1);
+  }
+  .site-header.open nav { display: block; }
+  .site-header.open { background: #fff; color: #000; }
+  .site-header nav ul { flex-direction: column; padding: 10px 16px; }
+  .site-header nav a { padding: 10px 0; }
+  .container { padding: 30px 16px; }
+  .hero { height: 300px; }
+  .hero-home { height: 420px; }
+  .cols { flex-direction: column; gap: 0; }
+  .col { flex: none !important; width: 100%; }
+  .band-image { min-height: 300px !important; }
+  .band-image.parallax { background-attachment: scroll; }
+  .blog-layout { flex-direction: column; gap: 30px; }
+  .sidebar { width: 100%; }
+  .text span[style*="font-size:48px"] { font-size: 34px !important; }
+  .text span[style*="font-size:32px"], h2 span[style*="font-size:32px"] { font-size: 24px !important; }
+  h2 span[style*="font-size:48px"] { font-size: 34px !important; }
+}
